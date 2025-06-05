@@ -60,7 +60,7 @@ class VideoGameBenchAgent:
                  api_base: Optional[str] = None):
         # Set up logging directory
         if log_dir is None:
-            model_name = model.replace("/", "-").replace(".", "-")
+            model_name = model.replace("/", "-").replace(".", "-").replace(":", "-") # fix
             self.log_dir = Path("logs") / f"{game.lower()}" / model_name / datetime.now().strftime("%Y%m%d_%H%M%S")
             self.log_dir.mkdir(parents=True, exist_ok=True)
         else:
